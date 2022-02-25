@@ -5,6 +5,7 @@ import * as _l from  'lodash';
 import { LoaderComponent } from 'src/app/components/loader/loader.component';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { AnimationComponent } from 'src/app/components/animation/animation.component';
 
 @Component({
   selector: 'app-login',

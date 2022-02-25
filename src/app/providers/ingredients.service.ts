@@ -12,7 +12,7 @@ export class IngredientsProvider {
     private http: HttpClient,
   ) { }
 
-  getAll() {
+  getAll(): any {
     return this.http.get(this._base).toPromise();
   }
 }

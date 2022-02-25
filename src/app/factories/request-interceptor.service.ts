@@ -48,7 +48,6 @@ export class RequestInterceptor implements HttpInterceptor {
     let response!: HttpEvent<any>;
 
     if (event instanceof HttpResponse) {
-      console.log(event.body);
       response = event.clone({
         body: event.body
       });

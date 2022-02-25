@@ -5,3 +5,21 @@ html, body {
   overflow: hidden;
 }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.view{
+  width:100%;
+  margin:auto;
+  height: calc(100% - 60px);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  .header{
+    font-size:25px;
+    color:#999;
+    font-family: 'Roboto';
+    height: 50px;
+    padding: 0 25px;
+    line-height: 50px;
+  }
+}
