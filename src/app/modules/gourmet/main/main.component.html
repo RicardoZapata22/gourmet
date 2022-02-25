@@ -8,7 +8,7 @@
       <mat-grid-tile
           *ngFor="let dish of dishes"
           [colspan]="1"
-          [rowspan]="2">
+          [rowspan]="2" (click)="openDish(dish)">
           <div class="dish">
             <div class="img">
               <img [src]="dish.strMealThumb"/>

@@ -5,6 +5,7 @@ import { DetailComponent } from './detail/detail.component';
 import { ShareComponentsModule } from 'src/app/components/share.module';
 import { FormsModule } from '@angular/forms';
 import {MatGridListModule} from '@angular/material/grid-list'
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import {MatGridListModule} from '@angular/material/grid-list'
     CommonModule,
     FormsModule,
     ShareComponentsModule,
-    MatGridListModule
+    MatGridListModule,
+    MatIconModule
   ],
   bootstrap: [MainComponent]
 })

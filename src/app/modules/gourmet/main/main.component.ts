@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GourmetProvider } from 'src/app/providers/gourmet.service';
 
 @Component({
@@ -12,17 +13,18 @@ export class MainComponent implements OnInit {
   dishes: any = [];
 
   constructor(
-    private gourmetProvider: GourmetProvider
+    private gourmetProvider: GourmetProvider,
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
   ) { }
 
   async ngOnInit(): Promise<void> {
       const resp = await this.gourmetProvider.getAllDishes();
       this.dishes = resp.meals;
-      console.log(this.dishes);
   }
 
   openDish(dish: any){
-
+    this.router.navigate(['detail',dish.idMeal], {relativeTo: this.activatedRoute});
   }
 
 }

@@ -29,7 +29,7 @@ const routes: Routes = [
         component: MainComponent,
       },
       {
-        path: 'gourmet/:id',
+        path: 'gourmet/detail/:id',
         component: DetailComponent,
       }
     ]
