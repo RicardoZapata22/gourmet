@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IngredientsProvider} from '../../providers/ingredients.service';
+import { GourmetProvider} from '../../providers/gourmet.service';
 import * as _l from 'lodash';
 import { LoaderComponent } from 'src/app/components/loader/loader.component';
 
@@ -11,10 +12,12 @@ import { LoaderComponent } from 'src/app/components/loader/loader.component';
 export class IngredientsComponent implements OnInit {
   ingredients: any = null;
   finder: string = '';
+  dish:any = null;
   @ViewChild('loader') loader!: LoaderComponent;
 
   constructor(
-    private ingredientsProvider: IngredientsProvider
+    private ingredientsProvider: IngredientsProvider,
+    private gourmetProvider: GourmetProvider
   ) { }
 
   async ngOnInit(): Promise<void> {
@@ -30,6 +33,20 @@ export class IngredientsComponent implements OnInit {
     return _l.filter(this.ingredients, item => {
       return item.strIngredient.toLowerCase().includes(this.finder.toLowerCase());
     });
+  }
+
+  async getDishesByIngredient(ingredient: any) {
+    if(!ingredient.Dishes) {
+      const resp = await this.gourmetProvider.getDishesByIngredient(ingredient.strIngredient);
+      ingredient.Dishes = resp.meals;
+    }
+  }
+
+  async openDishDetail(id:any){
+    const resp = await this.gourmetProvider.getDishDetailById(id);
+    this.dish = resp.meals.pop();
+
+
   }
 
 }

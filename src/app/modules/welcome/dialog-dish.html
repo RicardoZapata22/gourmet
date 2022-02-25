@@ -1,0 +1,31 @@
+<div class="dialog-dish" *ngIf="dish">
+  <a [href]="dish.strYoutube" [target]="'blank'">
+    <button class="youtube">
+      <mat-icon aria-hidden="false" aria-label="user">play_arrow</mat-icon>
+      Ver Youtube
+    </button>
+  </a>
+  <h2 mat-dialog-title>¡Platillo del día!</h2>
+  <mat-dialog-content class="mat-typography">
+    <h3>{{dish.strMeal}}</h3>
+    <div class="dish">
+      <div class="img">
+        <img [src]="dish.strMealThumb"/>
+      </div>
+      <div class="detail">
+        <label>Categoría</label>
+        <p>{{dish.strCategory}}</p>
+        <label>Región</label>
+        <p>{{dish.strArea}}</p>
+        <label>Ingredientes</label>
+        <p>{{dish.ingredients}}</p>
+        <label>Preparación</label>
+        <div class="instructions">{{dish.strInstructions}}</div>
+      </div>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Aceptar</button>
+  </mat-dialog-actions>
+</div>
+

@@ -1,0 +1,19 @@
+<div class="view">
+  <div class="header">Perfil</div>
+  <div class="profile-box">
+    <div class="profile-img">
+      <img [src]="'./assets/img/profile.jpg'"/>
+    </div>
+    <div class="profile-data">
+      <label>Nombre</label>
+      <p>{{profile.First_Name}} {{profile.Last_Name}}</p>
+      <label>Correo</label>
+      <p>{{profile.Email}}</p>
+      <button>
+        <mat-icon aria-hidden="false" aria-label="user">edit</mat-icon>
+        Editar
+      </button>
+      <button class="logout" (click)="logout()">Salir</button>
+    </div>
+  </div>
+</div>

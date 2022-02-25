@@ -9,13 +9,18 @@
   </div>
   <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="ingredients-list">
     <mat-accordion>
-      <mat-expansion-panel class="ingredient" hideToggle *cdkVirtualFor="let item of getListIngredients()">
+      <mat-expansion-panel class="ingredient" hideToggle *cdkVirtualFor="let ingredient of getListIngredients()" (click)="getDishesByIngredient(ingredient)">
         <mat-expansion-panel-header>
           <mat-panel-title>
-            {{item.strIngredient}}
+            {{ingredient.strIngredient}}
           </mat-panel-title>
         </mat-expansion-panel-header>
-        <p>{{item.strDescription}}.</p>
+        <div class="dish_list">
+          <div class="dish" *ngFor="let dish of ingredient.Dishes" (click)="openDishDetail(dish.idMeal)">
+            <img [src]="dish.strMealThumb"/>
+            {{dish.strMeal}}
+          </div>
+        </div>
       </mat-expansion-panel>
     </mat-accordion>
   </cdk-virtual-scroll-viewport>
