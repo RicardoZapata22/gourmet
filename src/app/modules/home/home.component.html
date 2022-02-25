@@ -1,11 +1,45 @@
-<mat-sidenav-container class="container">
-  <mat-sidenav class="sidenav" #sidenav mode="side" opened>
-    hola
+<mat-sidenav-container class="container" autosize>
+  <mat-sidenav fixedInViewport="true" class="sidenav" #sidenav mode="side" opened>
+    <div class="title">Food Manager</div>
+    <div class="profile">
+      <img src="./assets/img/profile.jpg"/>
+      <p class="user">{{profile.First_Name}} {{profile.Last_Name}}</p>
+      <span class="email">{{profile.Email}}</span>
+    </div>
+    <ul>
+      <li>
+        <a [routerLink]="['welcome']" routerLinkActive="active">
+          <mat-icon aria-hidden="false" aria-label="Bienvenida">home</mat-icon>
+          Bienvenida
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['ingredients']" routerLinkActive="active">
+          <mat-icon aria-hidden="false" aria-label="Ingredientes">apple</mat-icon>
+          Ingredientes populares
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['gourmet']" routerLinkActive="active">
+          <mat-icon aria-hidden="false" aria-label="Platillos">restaurant_menu</mat-icon>
+          Platillos
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['profile']" routerLinkActive="active">
+          <mat-icon aria-hidden="false" aria-label="user">face</mat-icon>
+          Perfile
+        </a>
+      </li>
+    </ul>
+    <div class="close">
+      <button (click)="logout()">Salir</button>
+    </div>
   </mat-sidenav>
   <mat-sidenav-content>
     <div class="navbar">
       <button type="button" class="menu-btn" mat-button (click)="sidenav.toggle()">
-        <mat-icon aria-hidden="false" aria-label="menu">menu</mat-icon>
+        <mat-icon aria-hidden="false" aria-label="menu">sort</mat-icon>
       </button>
     </div>
     <router-outlet></router-outlet>

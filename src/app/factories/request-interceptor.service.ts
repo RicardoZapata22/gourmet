@@ -8,28 +8,21 @@ import { SessionService } from '../services/session.service';
 @Injectable()
 export class RequestInterceptor implements HttpInterceptor {
 
-  authTokenFail = false;
-
   constructor(
     private session: SessionService
   ) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let dataReq: HttpRequest<any>;
-    let headers: any = {
-      'Content-Type': 'application/json; charset=utf-8',
-      Authorization: this.session.get() != null ? this.session.get().token : ''
-    };
-
-    if (req.url.indexOf('.txt') !== -1) {
-      headers['Access-Control-Allow-Origin'] = '*';
-      headers['Content-Type'] = 'text/plain; charset=utf-8';
-    }
+    /*let headers: any = {
+      'Access-Control-Allow-Origin': '*',
+      'Content-Type': 'application/x-www-form-urlencoded'
+    };*/
 
     dataReq = req.clone({
       body: (req.method === 'POST' || req.method === 'PUT') ? JSON.stringify(req.body) : req.body,
       url: (req.url.indexOf('http') === -1 || req.url.indexOf('./') === -1) ? environment.api.url + encodeURI(req.url) : req.url,
-      setHeaders: headers
+      //setHeaders: headers
     });
 
     return next.handle(dataReq).pipe(
@@ -55,6 +48,7 @@ export class RequestInterceptor implements HttpInterceptor {
     let response!: HttpEvent<any>;
 
     if (event instanceof HttpResponse) {
+      console.log(event.body);
       response = event.clone({
         body: event.body
       });

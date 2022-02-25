@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
   api: {
-    url: "https://www.themealdb.com/api.php"
+    url: "http://themealdb.com/api/json/v1/1"
   }
 };

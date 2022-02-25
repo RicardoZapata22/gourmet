@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { SessionService } from 'src/app/services/session.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-home',
@@ -6,12 +9,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  profile:any = null;
 
-  shouldRun = /(^|.)(stackblitz|webcontainer).(io|com)$/.test(window.location.host);
-
-  constructor() { }
+  constructor(
+    private session: SessionService,
+    private router: Router,
+  ) {
+    this.profile = session.get();
+   }
 
   ngOnInit(): void {
+  }
+
+  logout() {
+    this.session.clean();
+    this.router.navigate(['login']);
   }
 
 }

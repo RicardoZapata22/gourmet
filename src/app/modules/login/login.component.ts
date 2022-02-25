@@ -41,10 +41,10 @@ export class LoginComponent implements OnInit {
       this.loader.show('Iniciando session');
       this.loginState = 'loading';
       setTimeout(() => {
-        this.router.navigate(['home']);
+        this.router.navigate(['home/welcome']);
         this.session.set({
-          First_name:'Ricardo',
-          Last_name:'Zapata',
+          First_Name:'Ricardo',
+          Last_Name:'Zapata',
           Email: 'ricardozapata22@gmail.com'
         });
       }, 2000);
