@@ -19,6 +19,16 @@ export class DetailComponent implements OnInit {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     const resp = await this.gourmetProvider.getDishDetailById(id);
     this.dish = resp.meals.pop();
+
+    this.dish.ingredients = [];
+
+    for(let attr in this.dish){
+      if(attr.includes('Ingredient') && this.dish[attr] != ""){
+        this.dish.ingredients.push(this.dish[attr]);
+      }
+    }
+
+    this.dish.ingredients = this.dish.ingredients.join(', ');
   }
 
 }

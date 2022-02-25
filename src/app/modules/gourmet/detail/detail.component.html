@@ -1,13 +1,12 @@
 <div class="view">
-  <div class="header">Platillo</div>
+  <div class="header" *ngIf="dish">{{dish.strMeal}}</div>
   <div class="dialog-dish" *ngIf="dish">
-    <a [href]="dish.strYoutube" [target]="'blank'">
-      <button class="youtube">
-        <mat-icon aria-hidden="false" aria-label="user">play_arrow</mat-icon>
-        Ver Youtube
-      </button>
-    </a>
-    <h3>{{dish.strMeal}}</h3>
+      <a [href]="dish.strYoutube" [target]="'blank'">
+        <button class="youtube">
+          <mat-icon aria-hidden="false" aria-label="user">play_arrow</mat-icon>
+          Ver Youtube
+        </button>
+      </a>
       <div class="dish">
         <div class="img">
           <img [src]="dish.strMealThumb"/>
