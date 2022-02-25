@@ -1,12 +1,12 @@
 <div class="view">
   <div class="header">Platillos</div>
   <div class="finder">
-    <input type="text" placeholder="Buscar platillo"/>
+    <input type="text" [(ngModel)]="finder" placeholder="Buscar platillo"/>
   </div>
   <div class="dish-list">
     <mat-grid-list cols="1" rowHeight="100px">
       <mat-grid-tile
-          *ngFor="let dish of dishes"
+          *ngFor="let dish of getListDishes()"
           [colspan]="1"
           [rowspan]="2" (click)="openDish(dish)">
           <div class="dish">

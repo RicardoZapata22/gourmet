@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GourmetProvider } from 'src/app/providers/gourmet.service';
+import * as _l from 'lodash';
 
 @Component({
   selector: 'app-main-dish',
@@ -25,6 +26,12 @@ export class MainComponent implements OnInit {
 
   openDish(dish: any){
     this.router.navigate(['detail',dish.idMeal], {relativeTo: this.activatedRoute});
+  }
+
+  getListDishes() {
+    return _l.filter(this.dishes, item => {
+      return item.strMeal.toLowerCase().includes(this.finder.toLowerCase()) || item.strCategory.toLowerCase().includes(this.finder.toLowerCase());
+    });
   }
 
 }
