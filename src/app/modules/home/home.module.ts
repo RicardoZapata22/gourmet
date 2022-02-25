@@ -11,8 +11,8 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 import { FormsModule } from '@angular/forms';
 import { ShareComponentsModule } from '../../components/share.module';
 import { ProfileComponent } from '../profile/profile.component';
-import {MatDialogModule} from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { GourmetModule } from '../gourmet/gourmet.module';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,7 @@ import { MatButtonModule } from '@angular/material/button';
     FormsModule,
     ScrollingModule,
     ShareComponentsModule,
-    MatDialogModule
+    GourmetModule,
   ],
   bootstrap: [HomeComponent]
 })

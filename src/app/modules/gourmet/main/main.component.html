@@ -3,4 +3,29 @@
   <div class="finder">
     <input type="text" placeholder="Buscar platillo"/>
   </div>
+  <div class="dish-list">
+    <mat-grid-list cols="1" rowHeight="100px">
+      <mat-grid-tile
+          *ngFor="let dish of dishes"
+          [colspan]="1"
+          [rowspan]="2">
+          <div class="dish">
+            <div class="img">
+              <img [src]="dish.strMealThumb"/>
+            </div>
+            <div class="detail">
+              <div class="title">
+                {{dish.strMeal}}
+              </div>
+              <label>Categoría</label>
+              <p>{{dish.strCategory}}</p>
+              <label>Región</label>
+              <p>{{dish.strArea}}</p>
+            </div>
+          </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+
+  </div>
 </div>

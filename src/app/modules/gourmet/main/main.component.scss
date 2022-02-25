@@ -19,4 +19,60 @@
       }
     }
   }
+
+  .dish-list{
+    height:calc(100% - 60px);
+    position: relative;
+    overflow-y: auto;
+
+    mat-grid-tile{
+      margin-bottom: 10px;
+    }
+
+    .dish{
+      width:90%;
+      height: 150px;
+      border-radius: 10px;
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      background: #ffffff;
+      display: flex;
+      flex-direction: row;
+
+      .img{
+        width: 200px;
+        text-align: center;
+        display: flex;
+
+        img{
+          width:100px;
+          height: 100px;
+          border-radius: 100%;
+          margin:auto;
+          border:3px solid #CCC;
+        }
+      }
+
+      .detail{
+        width:100%;
+        padding: 10px;
+        box-sizing: border-box;
+
+        .title{
+          font-size: 16px;
+          color:#777;
+        }
+
+        label{
+          font-size:14px;
+          font-weight:bold;
+          color:#999;
+        }
+
+        p{
+          font-size: 12px;
+          color:#999;
+        }
+      }
+    }
+  }
 }

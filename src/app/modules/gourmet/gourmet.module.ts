@@ -4,7 +4,7 @@ import { MainComponent } from './main/main.component';
 import { DetailComponent } from './detail/detail.component';
 import { ShareComponentsModule } from 'src/app/components/share.module';
 import { FormsModule } from '@angular/forms';
-
+import {MatGridListModule} from '@angular/material/grid-list'
 
 
 @NgModule({
@@ -15,7 +15,9 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule,
-    ShareComponentsModule
-  ]
+    ShareComponentsModule,
+    MatGridListModule
+  ],
+  bootstrap: [MainComponent]
 })
 export class GourmetModule { }
