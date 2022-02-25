@@ -3,6 +3,10 @@
   <div class="finder">
     <input type="text" [(ngModel)]="finder" placeholder="Buscar platillo"/>
   </div>
+  <div class="center">
+    <span *ngIf="dishes != null && getListDishes().length == 0">No hay resultados</span>
+    <loader #loader></loader>
+  </div>
   <div class="dish-list">
     <mat-grid-list cols="1" rowHeight="100px">
       <mat-grid-tile

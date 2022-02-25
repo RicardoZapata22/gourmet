@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GourmetProvider } from 'src/app/providers/gourmet.service';
 import * as _l from 'lodash';
+import { LoaderComponent } from 'src/app/components/loader/loader.component';
 
 @Component({
   selector: 'app-main-dish',
@@ -11,7 +12,8 @@ import * as _l from 'lodash';
 export class MainComponent implements OnInit {
 
   finder:string = '';
-  dishes: any = [];
+  dishes: any = null;
+  @ViewChild('loader') loader!: LoaderComponent;
 
   constructor(
     private gourmetProvider: GourmetProvider,
@@ -20,8 +22,12 @@ export class MainComponent implements OnInit {
   ) { }
 
   async ngOnInit(): Promise<void> {
+    setTimeout(async () => {
+      this.loader.show('Cargando platillos');
       const resp = await this.gourmetProvider.getAllDishes();
       this.dishes = resp.meals;
+      this.loader.hide();
+    },0);
   }
 
   openDish(dish: any){
