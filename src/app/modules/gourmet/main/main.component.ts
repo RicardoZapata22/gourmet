@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GourmetProvider } from 'src/app/providers/gourmet.service';
 
 @Component({
   selector: 'app-main',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  finder:string = '';
+  dishes: any = [];
 
-  ngOnInit(): void {
+  constructor(
+    private gourmetProvider: GourmetProvider
+  ) { }
+
+  async ngOnInit(): Promise<void> {
+      const resp = await this.gourmetProvider.getAllDishes();
+      this.dishes = resp.meals;
   }
 
 }

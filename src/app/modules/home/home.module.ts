@@ -4,7 +4,7 @@ import {HomeRoutingModule} from './home-routing.module';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { HomeComponent } from './home.component';
 import {MatIconModule} from '@angular/material/icon';
-import {DialogRandomDish, WelcomeComponent} from '../welcome/welcome.component';
+import {WelcomeComponent} from '../welcome/welcome.component';
 import {IngredientsComponent} from '../ingredients/ingredients.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {ScrollingModule} from '@angular/cdk/scrolling';
@@ -19,10 +19,8 @@ import { MatButtonModule } from '@angular/material/button';
     HomeComponent,
     WelcomeComponent,
     IngredientsComponent,
-    ProfileComponent,
-    DialogRandomDish
+    ProfileComponent
   ],
-  entryComponents: [DialogRandomDish],
   imports: [
     CommonModule,
     HomeRoutingModule,

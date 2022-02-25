@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { DetailComponent } from '../gourmet/detail/detail.component';
+import { MainComponent } from '../gourmet/main/main.component';
 import { IngredientsComponent } from '../ingredients/ingredients.component';
 import { ProfileComponent } from '../profile/profile.component';
 import { WelcomeComponent } from '../welcome/welcome.component';
@@ -21,6 +23,14 @@ const routes: Routes = [
       {
         path:'profile',
         component: ProfileComponent
+      },
+      {
+        path: 'gourmet',
+        component: MainComponent,
+      },
+      {
+        path: 'gourmet/:id',
+        component: DetailComponent,
       }
     ]
   }

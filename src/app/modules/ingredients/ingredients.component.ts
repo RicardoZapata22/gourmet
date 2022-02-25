@@ -3,6 +3,8 @@ import { IngredientsProvider} from '../../providers/ingredients.service';
 import { GourmetProvider} from '../../providers/gourmet.service';
 import * as _l from 'lodash';
 import { LoaderComponent } from 'src/app/components/loader/loader.component';
+import { DialogDish } from '../../components/dialog-dish/dialog-dish.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-ingredients',
@@ -17,7 +19,8 @@ export class IngredientsComponent implements OnInit {
 
   constructor(
     private ingredientsProvider: IngredientsProvider,
-    private gourmetProvider: GourmetProvider
+    private gourmetProvider: GourmetProvider,
+    private dialog: MatDialog
   ) { }
 
   async ngOnInit(): Promise<void> {
@@ -44,9 +47,9 @@ export class IngredientsComponent implements OnInit {
 
   async openDishDetail(id:any){
     const resp = await this.gourmetProvider.getDishDetailById(id);
-    this.dish = resp.meals.pop();
-
-
+    DialogDish.random = resp.meals.pop();
+    DialogDish.title = "Platillo";
+    this.dialog.open(DialogDish);
   }
 
 }
