@@ -1,0 +1,37 @@
+:host{
+  .container {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: #f1f1f1;
+  }
+
+  .navbar{
+    width:100%;
+    height: 60px;
+    background: #567867;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+    .menu-btn{
+      background:none;
+      border:none;
+      color:white;
+      margin-top: 15px;
+      margin-left:10px;
+    }
+  }
+
+  .sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sidenav {
+    padding: 20px;
+    box-sizing: border-box;
+    width:270px;
+    background: #ebebeb;
+  }
+}

@@ -1,0 +1,13 @@
+<mat-sidenav-container class="container">
+  <mat-sidenav class="sidenav" #sidenav mode="side" opened>
+    hola
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="navbar">
+      <button type="button" class="menu-btn" mat-button (click)="sidenav.toggle()">
+        <mat-icon aria-hidden="false" aria-label="menu">menu</mat-icon>
+      </button>
+    </div>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

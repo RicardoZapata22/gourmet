@@ -1,0 +1,49 @@
+.loader{
+  width:auto;
+  display: inline-flex;
+
+  .content{
+    display: flex;
+  }
+
+  label{
+    font-size: 1.2rem;
+    color:#999;
+    font-family: 'Roboto';
+    margin:auto;
+  }
+
+  animation{
+    margin:auto;
+  }
+}
+
+.cover {
+  top:0;
+  left:0;
+  position:absolute!important;
+  background-color:#00000067;
+  z-index:99999!important;
+  width:100%;
+  display: flex!important;
+  height:100%;
+}
+
+.loader.cover {
+  .content{
+    flex-direction: column;
+    margin:auto;
+  }
+
+  label{
+    font-size: 1.2rem;
+    color:#FFF;
+    font-family: 'Roboto';
+    margin:auto;
+  }
+}
+
+.hide{
+  display:none!important;
+}
+

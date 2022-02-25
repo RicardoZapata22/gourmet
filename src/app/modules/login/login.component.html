@@ -1,1 +1,17 @@
-<h5>hola</h5>
+<div class="login">
+  <div class="loginForm">
+    <div class="brand">Log In</div>
+    <loader #loader></loader>
+    <form *ngIf="loginState==''" [formGroup]="loginForm" (ngSubmit)="login()">
+      <mat-form-field class="form-field" appearance="fill">
+        <input matInput type="text" formControlName="Usuario" placeholder="Usuario"/>
+      </mat-form-field>
+      <mat-form-field class="form-field" appearance="fill">
+        <input matInput type="password" formControlName="Password" placeholder="Contraseña"/>
+      </mat-form-field>
+      <button type="submit" mat-button color="primary">Iniciar Sesión</button>
+    </form>
+  </div>
+</div>
+
+

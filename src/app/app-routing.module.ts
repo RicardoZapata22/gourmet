@@ -7,6 +7,11 @@ const routes: Routes = [
     canActivate:[],
     loadChildren: () => { return import('./modules/login/login.module').then(m => m.LoginModule)}
   },
+  {
+    path: 'home',
+    canActivate: [],
+    loadChildren: () => { return import('./modules/home/home.module').then(m => m.HomeModule)}
+  },
   { path: '', redirectTo: 'login', pathMatch: 'full'},
   { path: '**', redirectTo: 'login'}
 ];

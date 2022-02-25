@@ -1,0 +1,6 @@
+<div class="loader" [class.cover]="cover" [class.hide]="!visible">
+  <div class="content">
+    <animation [path]="'./assets/animations/loader.json'" [width]="sizeAnimation" [height]="sizeAnimation" #animation></animation>
+    <label class="no-select">{{text}}</label>
+  </div>
+</div>
